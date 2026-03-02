@@ -14,7 +14,7 @@ export interface TeamMember {
 export const collaborators: TeamMember[] = [
   {
     id: 'demetrio-esteban',
-    name: 'Deme',
+    name: 'Demetrio Esteban Alférez',
     role: 'Founder & AI Developer',
     roleEs: 'Fundador y Desarrollador de IA',
     bio: 'AI Developer and Founder of Quorax LLC, headquartered in New York. Specialized in Data Science and Cloud/Data Engineering. Builds production-grade, cloud-native AI systems — from RAG pipelines and vector search to full-stack web applications.',
