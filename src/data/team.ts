@@ -25,6 +25,17 @@ export const collaborators: TeamMember[] = [
     github: 'https://github.com/demstalferez',
   },
   {
+    id: 'esther-carrasco',
+    name: 'Esther Carrasco',
+    role: 'Third Sector Liaison',
+    roleEs: 'Enlace del Tercer Sector',
+    bio: 'Sociologist and third sector expert. Leads the Softskills Area at Quorax — coordinating content design and delivery, and mentoring the Softskills track within data science programs.',
+    bioEs: 'Socióloga y experta en tercer sector. Lidera el Área de Softskills en Quorax — coordinando el diseño y la generación de contenidos, y mentorizando el itinerario de Softskills en programas de ciencia de datos.',
+    image: '/images/esther.jpeg',
+    specialties: ['Third Sector', 'Softskills', 'Content Design', 'Mentoring', 'Sociology'],
+    linkedin: 'https://www.linkedin.com/in/esther-carrasco-díaz-6a2041213/',
+  },
+  {
     id: 'maria-gonzalez',
     name: 'Maria G.',
     role: 'Data Engineer',
