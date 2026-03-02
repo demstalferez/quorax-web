@@ -8,7 +8,6 @@ export interface TeamMember {
   image: string;
   specialties: string[];
   linkedin?: string;
-  github?: string;
 }
 
 export const collaborators: TeamMember[] = [
@@ -22,7 +21,6 @@ export const collaborators: TeamMember[] = [
     image: '/images/deme.jpeg',
     specialties: ['AI/ML', 'Data Science', 'Cloud Engineering', 'Cybersecurity', 'Full-Stack'],
     linkedin: 'https://www.linkedin.com/in/demstalfer',
-    github: 'https://github.com/demstalferez',
   },
   {
     id: 'esther-carrasco',

@@ -14,7 +14,6 @@ import { t } from '@/lib/translations';
 import {
   ArrowRight,
   Linkedin,
-  Github,
   Code2,
   Brain,
   Cloud,
@@ -216,33 +215,20 @@ export default function TeamPage() {
                           <TechPill key={s} label={s} variant={index % 2 === 0 ? 'cyan' : 'blue'} />
                         ))}
                       </div>
-                      {(member.linkedin || member.github) && (
+                      {member.linkedin && (
                         <div
                           className="flex items-center gap-3 mt-auto pt-5"
                           style={{ borderTop: `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)'}` }}
                         >
-                          {member.linkedin && (
-                            <a
-                              href={member.linkedin}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="transition-colors duration-300 hover:text-brand-cyan"
-                              style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
-                            >
-                              <Linkedin size={18} />
-                            </a>
-                          )}
-                          {member.github && (
-                            <a
-                              href={member.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="transition-colors duration-300 hover:text-brand-cyan"
-                              style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
-                            >
-                              <Github size={18} />
-                            </a>
-                          )}
+                          <a
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="transition-colors duration-300 hover:text-brand-cyan"
+                            style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                          >
+                            <Linkedin size={18} />
+                          </a>
                         </div>
                       )}
                     </div>
