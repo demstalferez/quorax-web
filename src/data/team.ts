@@ -53,7 +53,7 @@ export const collaborators: TeamMember[] = [
     roleEs: 'Ingeniera de ML y Especialista en Criptografía',
     bio: 'Machine Learning Engineer from the Philippines. 3x StackLeague Grand Champion (2021–2023) and competitive programmer with deep expertise in Partially Homomorphic Encryption and applied ML systems.',
     bioEs: 'Ingeniera de Machine Learning de Filipinas. Triple Campeona del StackLeague (2021–2023) y programadora competitiva con profunda experiencia en Cifrado Parcialmente Homomórfico y sistemas de ML aplicado.',
-    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80',
+    image: '/images/danielle.png',
     specialties: ['Machine Learning', 'Homomorphic Encryption', 'Competitive Programming', 'Cryptography'],
     linkedin: 'https://www.linkedin.com/in/algorexph/',
   },
