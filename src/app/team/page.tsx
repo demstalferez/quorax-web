@@ -146,107 +146,105 @@ export default function TeamPage() {
           </ScrollReveal>
 
           {/* Team cards grid */}
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1160px] mx-auto">
             {collaborators.map((member, index) => {
               const color = memberColors[index];
               return (
-                <ScrollReveal key={member.id} delay={index * 100}>
-                  <div className="w-[340px] sm:w-[360px]">
-                    <div
-                      className="rounded-2xl overflow-hidden h-full transition-all duration-300 hover:translate-y-[-4px] group"
-                      style={{
-                        backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
-                        border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
-                        borderTop: `3px solid ${color}`,
-                        boxShadow: isDark
-                          ? '0 4px 20px rgba(0,0,0,0.3)'
-                          : '0 4px 20px rgba(0,0,0,0.06)',
-                      }}
-                    >
-                      {/* Photo */}
-                      <div className="relative aspect-[3/2] overflow-hidden">
-                        <Image
-                          src={member.image}
-                          alt={member.name}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 640px) 340px, 360px"
-                        />
+                <ScrollReveal key={member.id} delay={index * 100} className="h-full">
+                  <div
+                    className="rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300 hover:translate-y-[-4px] group"
+                    style={{
+                      backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                      border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                      borderTop: `3px solid ${color}`,
+                      boxShadow: isDark
+                        ? '0 4px 20px rgba(0,0,0,0.3)'
+                        : '0 4px 20px rgba(0,0,0,0.06)',
+                    }}
+                  >
+                    {/* Photo */}
+                    <div className="relative aspect-[3/2] overflow-hidden">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100%, (max-width: 1024px) 50%, 360px"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: isDark
+                            ? 'linear-gradient(180deg, transparent 40%, rgba(10,14,39,0.8) 100%)'
+                            : 'linear-gradient(180deg, transparent 40%, rgba(255,255,255,0.6) 100%)',
+                        }}
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(135deg, ${color}12 0%, ${color}05 100%)`,
+                          mixBlendMode: 'overlay',
+                        }}
+                      />
+                      {isDark && (
                         <div
-                          className="absolute inset-0"
-                          style={{
-                            background: isDark
-                              ? 'linear-gradient(180deg, transparent 40%, rgba(10,14,39,0.8) 100%)'
-                              : 'linear-gradient(180deg, transparent 40%, rgba(255,255,255,0.6) 100%)',
-                          }}
+                          className="absolute inset-0 pointer-events-none"
+                          style={{ boxShadow: `inset 0 0 0 1px ${color}33` }}
                         />
-                        <div
-                          className="absolute inset-0"
-                          style={{
-                            background: `linear-gradient(135deg, ${color}12 0%, ${color}05 100%)`,
-                            mixBlendMode: 'overlay',
-                          }}
-                        />
-                        {isDark && (
-                          <div
-                            className="absolute inset-0 pointer-events-none"
-                            style={{ boxShadow: `inset 0 0 0 1px ${color}33` }}
-                          />
-                        )}
-                      </div>
+                      )}
+                    </div>
 
-                      {/* Info */}
-                      <div className="p-6">
-                        <h3
-                          className="text-xl font-bold"
-                          style={{ color: isDark ? '#FFFFFF' : '#111827' }}
-                        >
-                          {member.name}
-                        </h3>
-                        <p className="text-brand-blue text-sm font-medium mt-1">
-                          {language === 'es' ? member.roleEs : member.role}
-                        </p>
-                        <p
-                          className="text-sm leading-relaxed mt-3"
-                          style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
-                        >
-                          {language === 'es' ? member.bioEs : member.bio}
-                        </p>
-                        <div className="flex flex-wrap gap-1.5 mt-4">
-                          {member.specialties.map((s) => (
-                            <TechPill key={s} label={s} variant={index % 2 === 0 ? 'cyan' : 'blue'} />
-                          ))}
-                        </div>
-                        {(member.linkedin || member.github) && (
-                          <div
-                            className="flex items-center gap-3 mt-5 pt-5"
-                            style={{ borderTop: `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)'}` }}
-                          >
-                            {member.linkedin && (
-                              <a
-                                href={member.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="transition-colors duration-300 hover:text-brand-cyan"
-                                style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
-                              >
-                                <Linkedin size={18} />
-                              </a>
-                            )}
-                            {member.github && (
-                              <a
-                                href={member.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="transition-colors duration-300 hover:text-brand-cyan"
-                                style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
-                              >
-                                <Github size={18} />
-                              </a>
-                            )}
-                          </div>
-                        )}
+                    {/* Info */}
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3
+                        className="text-xl font-bold"
+                        style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                      >
+                        {member.name}
+                      </h3>
+                      <p className="text-brand-blue text-sm font-medium mt-1">
+                        {language === 'es' ? member.roleEs : member.role}
+                      </p>
+                      <p
+                        className="text-sm leading-relaxed mt-3"
+                        style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                      >
+                        {language === 'es' ? member.bioEs : member.bio}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mt-4">
+                        {member.specialties.map((s) => (
+                          <TechPill key={s} label={s} variant={index % 2 === 0 ? 'cyan' : 'blue'} />
+                        ))}
                       </div>
+                      {(member.linkedin || member.github) && (
+                        <div
+                          className="flex items-center gap-3 mt-auto pt-5"
+                          style={{ borderTop: `1px solid ${isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.06)'}` }}
+                        >
+                          {member.linkedin && (
+                            <a
+                              href={member.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="transition-colors duration-300 hover:text-brand-cyan"
+                              style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                            >
+                              <Linkedin size={18} />
+                            </a>
+                          )}
+                          {member.github && (
+                            <a
+                              href={member.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="transition-colors duration-300 hover:text-brand-cyan"
+                              style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                            >
+                              <Github size={18} />
+                            </a>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </ScrollReveal>
