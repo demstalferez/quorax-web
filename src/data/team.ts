@@ -44,6 +44,7 @@ export const collaborators: TeamMember[] = [
     bioEs: 'Product Owner de I+D en IA Cognitiva en Credicorp y formado en Stanford. Asesora a Quorax en estrategia de IA, sistemas cognitivos y adopción de IA en entornos empresariales complejos.',
     image: '/images/antonio.jpeg',
     specialties: ['AI Strategy', 'Cognitive AI', 'R&D', 'Product Ownership', 'Enterprise AI'],
+    linkedin: 'https://www.linkedin.com/in/antonio-zarauz-moreno/',
   },
   {
     id: 'maria-gonzalez',
