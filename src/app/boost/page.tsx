@@ -11,17 +11,16 @@ import {
   CalendarCheck,
   Rocket,
   MessageCircle,
-  Wrench,
   TrendingUp,
   Check,
   ChevronDown,
-  Star,
   Bot,
   ShoppingCart,
   FileText,
   CalendarDays,
   Search,
   Languages,
+  Phone,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import ScrollReveal from '@/components/ui/ScrollReveal';
@@ -44,61 +43,23 @@ export default function BoostPage() {
     { icon: CalendarCheck, titleKey: 'boost_feature_6_title' as const, descKey: 'boost_feature_6_desc' as const, color: '#EF4444' },
   ];
 
-  const plans = [
-    {
-      name: 'boost_plan_starter' as const,
-      price: 'boost_plan_starter_price' as const,
-      desc: 'boost_plan_starter_desc' as const,
-      features: [
-        'boost_plan_starter_f1' as const,
-        'boost_plan_starter_f2' as const,
-        'boost_plan_starter_f3' as const,
-        'boost_plan_starter_f4' as const,
-        'boost_plan_starter_f5' as const,
-        'boost_plan_starter_f6' as const,
-      ],
-      color: '#0147FF',
-      popular: false,
-    },
-    {
-      name: 'boost_plan_growth' as const,
-      price: 'boost_plan_growth_price' as const,
-      desc: 'boost_plan_growth_desc' as const,
-      features: [
-        'boost_plan_growth_f1' as const,
-        'boost_plan_growth_f2' as const,
-        'boost_plan_growth_f3' as const,
-        'boost_plan_growth_f4' as const,
-        'boost_plan_growth_f5' as const,
-        'boost_plan_growth_f6' as const,
-      ],
-      color: '#00D4FF',
-      popular: true,
-    },
-    {
-      name: 'boost_plan_scale' as const,
-      price: 'boost_plan_scale_price' as const,
-      desc: 'boost_plan_scale_desc' as const,
-      features: [
-        'boost_plan_scale_f1' as const,
-        'boost_plan_scale_f2' as const,
-        'boost_plan_scale_f3' as const,
-        'boost_plan_scale_f4' as const,
-        'boost_plan_scale_f5' as const,
-        'boost_plan_scale_f6' as const,
-      ],
-      color: '#8B5CF6',
-      popular: false,
-    },
+  const pricingFeatures = [
+    'boost_pricing_f1' as const,
+    'boost_pricing_f2' as const,
+    'boost_pricing_f3' as const,
+    'boost_pricing_f4' as const,
+    'boost_pricing_f5' as const,
+    'boost_pricing_f6' as const,
+    'boost_pricing_f7' as const,
   ];
 
   const addons = [
-    { icon: Bot, titleKey: 'boost_addon_chatbot_title' as const, descKey: 'boost_addon_chatbot_desc' as const, priceKey: 'boost_addon_chatbot_price' as const, color: '#8B5CF6' },
-    { icon: ShoppingCart, titleKey: 'boost_addon_ecommerce_title' as const, descKey: 'boost_addon_ecommerce_desc' as const, priceKey: 'boost_addon_ecommerce_price' as const, color: '#0147FF' },
-    { icon: FileText, titleKey: 'boost_addon_blog_title' as const, descKey: 'boost_addon_blog_desc' as const, priceKey: 'boost_addon_blog_price' as const, color: '#10B981' },
-    { icon: CalendarDays, titleKey: 'boost_addon_booking_title' as const, descKey: 'boost_addon_booking_desc' as const, priceKey: 'boost_addon_booking_price' as const, color: '#F59E0B' },
-    { icon: Search, titleKey: 'boost_addon_seo_title' as const, descKey: 'boost_addon_seo_desc' as const, priceKey: 'boost_addon_seo_price' as const, color: '#EF4444' },
-    { icon: Languages, titleKey: 'boost_addon_multilingual_title' as const, descKey: 'boost_addon_multilingual_desc' as const, priceKey: 'boost_addon_multilingual_price' as const, color: '#00D4FF' },
+    { icon: Bot, titleKey: 'boost_addon_chatbot_title' as const, descKey: 'boost_addon_chatbot_desc' as const, color: '#8B5CF6' },
+    { icon: ShoppingCart, titleKey: 'boost_addon_ecommerce_title' as const, descKey: 'boost_addon_ecommerce_desc' as const, color: '#0147FF' },
+    { icon: FileText, titleKey: 'boost_addon_blog_title' as const, descKey: 'boost_addon_blog_desc' as const, color: '#10B981' },
+    { icon: CalendarDays, titleKey: 'boost_addon_booking_title' as const, descKey: 'boost_addon_booking_desc' as const, color: '#F59E0B' },
+    { icon: Search, titleKey: 'boost_addon_seo_title' as const, descKey: 'boost_addon_seo_desc' as const, color: '#EF4444' },
+    { icon: Languages, titleKey: 'boost_addon_multilingual_title' as const, descKey: 'boost_addon_multilingual_desc' as const, color: '#00D4FF' },
   ];
 
   const faqs = [
@@ -373,7 +334,7 @@ export default function BoostPage() {
         className="py-20 md:py-28 scroll-mt-20"
         style={{ backgroundColor: isDark ? '#0A0E27' : '#FFFFFF' }}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <div className="flex items-center justify-center gap-3 mb-6">
@@ -398,100 +359,89 @@ export default function BoostPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {plans.map((plan, index) => (
-              <ScrollReveal key={plan.name} delay={index * 100}>
-                <div
-                  className="rounded-2xl p-8 h-full flex flex-col relative transition-all duration-300 hover:translate-y-[-4px]"
-                  style={{
-                    backgroundColor: isDark ? 'rgba(10,14,39,0.9)' : '#FFFFFF',
-                    border: plan.popular
-                      ? `2px solid ${plan.color}`
-                      : `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
-                    boxShadow: plan.popular
-                      ? `0 8px 40px ${plan.color}20`
-                      : isDark
-                        ? '0 4px 20px rgba(0,0,0,0.3)'
-                        : '0 4px 20px rgba(0,0,0,0.06)',
-                  }}
-                >
-                  {plan.popular && (
-                    <div
-                      className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5"
-                      style={{ backgroundColor: plan.color, color: '#FFFFFF' }}
-                    >
-                      <Star size={12} fill="currentColor" />
-                      {t(language, 'boost_plan_popular')}
-                    </div>
-                  )}
-
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ color: isDark ? '#FFFFFF' : '#111827' }}
-                  >
-                    {t(language, plan.name)}
-                  </h3>
-
+          <ScrollReveal delay={100}>
+            <div
+              className="rounded-2xl p-8 md:p-12 relative"
+              style={{
+                backgroundColor: isDark ? 'rgba(10,14,39,0.9)' : '#FFFFFF',
+                border: `2px solid ${isDark ? 'rgba(0,212,255,0.2)' : 'rgba(1,71,255,0.15)'}`,
+                boxShadow: isDark
+                  ? '0 8px 40px rgba(0,212,255,0.08)'
+                  : '0 8px 40px rgba(1,71,255,0.08)',
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                {/* Left — Price & description */}
+                <div>
                   <p
-                    className="text-sm mb-6"
+                    className="text-sm font-mono uppercase tracking-widest mb-2"
                     style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
                   >
-                    {t(language, plan.desc)}
+                    {t(language, 'boost_pricing_from')}
                   </p>
-
-                  <div className="flex items-baseline gap-1 mb-8">
+                  <div className="flex items-baseline gap-2">
                     <span
-                      className="text-5xl font-black"
-                      style={{ color: plan.color }}
+                      className="text-6xl md:text-7xl font-black"
+                      style={{ color: '#00D4FF' }}
                     >
-                      {t(language, plan.price)}
+                      {t(language, 'boost_pricing_price')}
                     </span>
                     <span
-                      className="text-sm"
+                      className="text-xl"
                       style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
                     >
-                      {t(language, 'boost_plan_month')}
+                      {t(language, 'boost_pricing_month')}
                     </span>
                   </div>
+                  <p
+                    className="text-sm mt-6 leading-relaxed"
+                    style={{ color: isDark ? '#C0C0C0' : '#4B5563' }}
+                  >
+                    {t(language, 'boost_pricing_desc')}
+                  </p>
+                  <div className="flex flex-wrap gap-4 mt-8">
+                    <Button href="/contact" variant="primary" size="lg">
+                      <Phone size={16} className="mr-2" />
+                      {t(language, 'boost_pricing_cta')}
+                    </Button>
+                  </div>
+                  <p
+                    className="text-xs mt-4"
+                    style={{ color: isDark ? '#8E8E93' : '#9CA3AF' }}
+                  >
+                    {t(language, 'boost_pricing_note')}
+                  </p>
+                </div>
 
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    {plan.features.map((featureKey) => (
-                      <li key={featureKey} className="flex items-start gap-3">
+                {/* Right — What's included */}
+                <div>
+                  <p
+                    className="text-sm font-bold uppercase tracking-wider mb-4"
+                    style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                  >
+                    {t(language, 'boost_pricing_includes')}
+                  </p>
+                  <ul className="space-y-3">
+                    {pricingFeatures.map((key) => (
+                      <li key={key} className="flex items-start gap-3">
                         <Check
                           size={16}
                           className="flex-shrink-0 mt-0.5"
-                          style={{ color: plan.color }}
+                          style={{ color: '#00D4FF' }}
                         />
                         <span
                           className="text-sm"
                           style={{ color: isDark ? '#C0C0C0' : '#4B5563' }}
                         >
-                          {t(language, featureKey)}
+                          {t(language, key)}
                         </span>
                       </li>
                     ))}
                   </ul>
-
-                  {plan.name === 'boost_plan_scale' && (
-                    <p
-                      className="text-xs mb-4 -mt-4"
-                      style={{ color: isDark ? '#8E8E93' : '#9CA3AF' }}
-                    >
-                      {t(language, 'boost_plan_scale_fair')}
-                    </p>
-                  )}
-
-                  <Button
-                    href="/contact"
-                    variant={plan.popular ? 'primary' : 'outline'}
-                    size="md"
-                  >
-                    {t(language, 'boost_plan_cta')}
-                  </Button>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -537,19 +487,11 @@ export default function BoostPage() {
                       border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
                     }}
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-                        style={{ backgroundColor: `${addon.color}15` }}
-                      >
-                        <Icon size={24} style={{ color: addon.color }} />
-                      </div>
-                      <span
-                        className="text-lg font-black"
-                        style={{ color: addon.color }}
-                      >
-                        {t(language, addon.priceKey)}
-                      </span>
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                      style={{ backgroundColor: `${addon.color}15` }}
+                    >
+                      <Icon size={24} style={{ color: addon.color }} />
                     </div>
                     <h3
                       className="text-lg font-bold mb-2"
