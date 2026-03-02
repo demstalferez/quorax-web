@@ -44,6 +44,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: [
+      { url: '/images/quorax-logo.svg', type: 'image/svg+xml' },
+      { url: '/images/quorax-logo.png', type: 'image/png' },
+    ],
+    apple: '/images/quorax-logo.png',
+  },
 };
 
 export default function RootLayout({
