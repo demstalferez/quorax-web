@@ -66,5 +66,6 @@ export const collaborators: TeamMember[] = [
     bioEs: 'Consultor Senior de ServiceNow en DXC Technology con más de 8 años implantando soluciones ITSM en grandes empresas globales. Máster en Ciberseguridad, especializado en GenAI para IT Ops (RAG/LLMs), MLOps y Azure ML. Profesor de IA en Upgrade Hub.',
     image: '/images/manu.jpeg',
     specialties: ['ServiceNow', 'ITSM', 'GenAI / RAG', 'MLOps', 'Azure ML', 'Cybersecurity'],
+    linkedin: 'https://www.linkedin.com/in/manulinares6/',
   },
 ];
