@@ -286,6 +286,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Boost Banner */}
+      <section
+        className="py-16 md:py-20"
+        style={{ backgroundColor: isDark ? '#0A0E27' : '#FFFFFF' }}
+      >
+        <div className="max-w-5xl mx-auto px-6">
+          <ScrollReveal>
+            <div
+              className="rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden"
+              style={{
+                background: isDark
+                  ? 'linear-gradient(135deg, rgba(1,71,255,0.1) 0%, rgba(0,212,255,0.05) 100%)'
+                  : 'linear-gradient(135deg, rgba(1,71,255,0.06) 0%, rgba(0,212,255,0.03) 100%)',
+                border: `1px solid ${isDark ? 'rgba(1,71,255,0.2)' : 'rgba(1,71,255,0.12)'}`,
+              }}
+            >
+              <div className="flex-1">
+                <span
+                  className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
+                  style={{ backgroundColor: '#0147FF', color: '#FFFFFF' }}
+                >
+                  {t(language, 'home_boost_label')}
+                </span>
+                <h3
+                  className="text-2xl md:text-3xl font-black tracking-tight"
+                  style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                >
+                  {t(language, 'home_boost_title')}
+                </h3>
+                <p
+                  className="text-sm md:text-base mt-3 max-w-lg leading-relaxed"
+                  style={{ color: isDark ? '#C0C0C0' : '#4B5563' }}
+                >
+                  {t(language, 'home_boost_subtitle')}
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <Button href="/boost" variant="primary" size="lg">
+                  {t(language, 'home_boost_cta')}
+                </Button>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section className="cta-banner py-16 md:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">

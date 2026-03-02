@@ -18,6 +18,7 @@ export function Footer() {
     { label: t(language, 'nav_portfolio'), href: '/portfolio' },
     { label: t(language, 'nav_training'), href: '/training' },
     { label: t(language, 'nav_team'), href: '/team' },
+    { label: t(language, 'nav_boost'), href: '/boost' },
     { label: t(language, 'nav_contact'), href: '/contact' },
   ];
 
