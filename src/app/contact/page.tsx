@@ -8,6 +8,8 @@ import {
   Calendar,
   CheckCircle2,
   ArrowRight,
+  MapPin,
+  Phone,
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -165,6 +167,49 @@ export default function ContactPage() {
                     >
                       {t(language, 'contact_calendly_note')}
                     </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* Address & Phone card */}
+              <ScrollReveal delay={300}>
+                <div
+                  className="rounded-2xl p-6 md:p-8"
+                  style={{
+                    backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                    border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                    boxShadow: isDark
+                      ? '0 4px 20px rgba(0,0,0,0.3)'
+                      : '0 4px 20px rgba(0,0,0,0.06)',
+                  }}
+                >
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-start gap-3">
+                      <MapPin size={18} className="text-brand-cyan flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p
+                          className="text-sm font-semibold"
+                          style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                        >
+                          Quorax LLC
+                        </p>
+                        <p
+                          className="text-sm mt-0.5"
+                          style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                        >
+                          {t(language, 'footer_address')}<br />
+                          {t(language, 'footer_address_city')}
+                        </p>
+                      </div>
+                    </div>
+                    <a
+                      href="tel:+18653076200"
+                      className="flex items-center gap-3 transition-colors duration-300 hover:text-brand-cyan"
+                      style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                    >
+                      <Phone size={18} className="text-brand-cyan flex-shrink-0" />
+                      <span className="text-sm">{t(language, 'footer_phone')}</span>
+                    </a>
                   </div>
                 </div>
               </ScrollReveal>

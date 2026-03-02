@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { t } from '@/lib/translations';
@@ -117,6 +117,29 @@ export function Footer() {
             </h3>
 
             <div className="flex flex-col gap-3">
+              {/* Address */}
+              <div
+                className="flex items-start gap-2 text-sm"
+                style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+              >
+                <MapPin size={16} className="flex-shrink-0 mt-0.5" />
+                <span>
+                  {t(language, 'footer_address')}<br />
+                  {t(language, 'footer_address_city')}
+                </span>
+              </div>
+
+              {/* Phone */}
+              <a
+                href="tel:+18653076200"
+                className="flex items-center gap-2 text-sm transition-colors duration-300 hover:text-brand-cyan"
+                style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+              >
+                <Phone size={16} />
+                <span>{t(language, 'footer_phone')}</span>
+              </a>
+
+              {/* Social links */}
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (

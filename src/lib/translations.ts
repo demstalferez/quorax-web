@@ -192,7 +192,7 @@ const translations = {
     contact_schedule_desc: 'Book a free 30-minute discovery call to discuss your project.',
     contact_schedule_cta: 'Book a Free 30-min Call',
     contact_calendly_note: 'Free 30-minute discovery call. No commitment required.',
-    contact_location: 'Remote — Based in Spain (UTC+1)',
+    contact_location: 'New York, NY — USA (EST/EDT)',
     contact_form_label: 'SEND A MESSAGE',
     contact_form_title: 'Tell Us About Your Project',
     contact_info_label: 'OTHER WAYS TO REACH US',
@@ -266,7 +266,10 @@ const translations = {
     footer_copyright: '© 2026 Quorax LLC. All rights reserved.',
     footer_quick_links: 'Quick Links',
     footer_connect: 'Connect',
-    footer_location: 'Remote — Based in Spain',
+    footer_address: '447 Broadway, 2nd Floor, Suite 3368',
+    footer_address_city: 'New York, NY 10013, US',
+    footer_phone: '+1 865 307 6200',
+    footer_location: 'Quorax LLC — 447 Broadway, 2nd Floor, Suite 3368, New York, NY 10013, US',
   },
   es: {
     // Nav
@@ -459,7 +462,7 @@ const translations = {
     contact_schedule_desc: 'Reserva una llamada de descubrimiento gratuita de 30 minutos para discutir tu proyecto.',
     contact_schedule_cta: 'Reservar Llamada Gratuita de 30 min',
     contact_calendly_note: 'Llamada de descubrimiento gratuita de 30 minutos. Sin compromiso.',
-    contact_location: 'Remoto — Con base en España (UTC+1)',
+    contact_location: 'Nueva York, NY — EE.UU. (EST/EDT)',
     contact_form_label: 'ENVÍA UN MENSAJE',
     contact_form_title: 'Cuéntanos Sobre Tu Proyecto',
     contact_info_label: 'OTRAS FORMAS DE CONTACTO',
@@ -533,7 +536,10 @@ const translations = {
     footer_copyright: '© 2026 Quorax LLC. Todos los derechos reservados.',
     footer_quick_links: 'Enlaces Rápidos',
     footer_connect: 'Conectar',
-    footer_location: 'Remoto — Con base en España',
+    footer_address: '447 Broadway, 2nd Floor, Suite 3368',
+    footer_address_city: 'Nueva York, NY 10013, EE.UU.',
+    footer_phone: '+1 865 307 6200',
+    footer_location: 'Quorax LLC — 447 Broadway, 2nd Floor, Suite 3368, Nueva York, NY 10013, EE.UU.',
   },
 } as const;
 
