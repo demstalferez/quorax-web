@@ -57,4 +57,14 @@ export const collaborators: TeamMember[] = [
     specialties: ['Machine Learning', 'Homomorphic Encryption', 'Competitive Programming', 'Cryptography'],
     linkedin: 'https://www.linkedin.com/in/algorexph/',
   },
+  {
+    id: 'manuel-cotarelo',
+    name: 'José Manuel Cotarelo Linares',
+    role: 'ServiceNow & AI Consultant',
+    roleEs: 'Consultor ServiceNow e IA',
+    bio: 'ServiceNow Senior Consultant at DXC Technology with 8+ years delivering ITSM solutions for global enterprises. MSc in Cybersecurity, specialized in GenAI for IT Ops (RAG/LLMs), MLOps and Azure ML. AI Instructor at Upgrade Hub.',
+    bioEs: 'Consultor Senior de ServiceNow en DXC Technology con más de 8 años implantando soluciones ITSM en grandes empresas globales. Máster en Ciberseguridad, especializado en GenAI para IT Ops (RAG/LLMs), MLOps y Azure ML. Profesor de IA en Upgrade Hub.',
+    image: '/images/manu.jpeg',
+    specialties: ['ServiceNow', 'ITSM', 'GenAI / RAG', 'MLOps', 'Azure ML', 'Cybersecurity'],
+  },
 ];
