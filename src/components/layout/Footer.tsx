@@ -26,8 +26,8 @@ export function Footer() {
     {
       icon: Mail,
       label: 'Email',
-      href: 'mailto:deme@quorax.ai',
-      text: 'deme@quorax.ai',
+      href: 'mailto:info@quorax.ai',
+      text: 'info@quorax.ai',
     },
     {
       icon: Linkedin,

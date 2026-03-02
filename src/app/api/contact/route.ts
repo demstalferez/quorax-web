@@ -37,7 +37,7 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;');
 }
 
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'deme@quorax.ai';
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'info@quorax.ai';
 
 export async function POST(request: Request) {
   try {
