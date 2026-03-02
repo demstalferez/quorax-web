@@ -68,4 +68,15 @@ export const collaborators: TeamMember[] = [
     specialties: ['ServiceNow', 'ITSM', 'GenAI / RAG', 'MLOps', 'Azure ML', 'Cybersecurity'],
     linkedin: 'https://www.linkedin.com/in/manulinares6/',
   },
+  {
+    id: 'angela-valcarcel',
+    name: 'Ángela Valcárcel Segura',
+    role: 'Digital Transformation & Data Analytics for Social Impact',
+    roleEs: 'Transformación Digital y Análisis de Datos para Tercer Sector e Intervención Social',
+    bio: 'Chief Digital Transformation Officer at Accem and Data Analytics Teacher at Upgrade Hub. 8+ years leading digital strategy, data governance, and cloud migration in humanitarian and third-sector organizations including the Spanish Red Cross across Spain and West Africa.',
+    bioEs: 'Chief Digital Transformation Officer en Accem y Profesora de Data Analytics en Upgrade Hub. Más de 8 años liderando estrategia digital, gobernanza de datos y migración cloud en organizaciones humanitarias y del tercer sector, incluyendo Cruz Roja Española en España y África Occidental.',
+    image: '/images/angela.jpeg',
+    specialties: ['Digital Transformation', 'Data Analytics', 'Power BI', 'Microsoft 365', 'Third Sector'],
+    linkedin: 'https://www.linkedin.com/in/ángela-valcárcel-segura-3b8532185/',
+  },
 ];

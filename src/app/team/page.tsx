@@ -24,7 +24,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 
-const memberColors = ['#0147FF', '#00D4FF', '#6366F1', '#10B981', '#F59E0B'];
+const memberColors = ['#0147FF', '#00D4FF', '#6366F1', '#10B981', '#F59E0B', '#EC4899'];
 
 const skillIcons: Record<string, React.ComponentType<{ className?: string; size?: number; style?: React.CSSProperties }>> = {
   Languages: Code2,
@@ -55,7 +55,7 @@ export default function TeamPage() {
     { value: 5, suffix: '+', label: t(language, 'team_stats_disciplines') },
     { value: 10, suffix: '+', label: t(language, 'team_stats_years') },
     { value: 3, suffix: '', label: t(language, 'team_stats_continents') },
-    { value: 5, suffix: '', label: t(language, 'team_stats_specialists') },
+    { value: 6, suffix: '', label: t(language, 'team_stats_specialists') },
   ];
 
   return (
