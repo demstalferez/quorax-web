@@ -36,6 +36,16 @@ export const collaborators: TeamMember[] = [
     linkedin: 'https://www.linkedin.com/in/esther-carrasco-díaz-6a2041213/',
   },
   {
+    id: 'antonio-zarauz',
+    name: 'Antonio Zarauz',
+    role: 'AI Consultant',
+    roleEs: 'Consultor en Inteligencia Artificial',
+    bio: 'Cognitive-AI R&D Product Owner at Credicorp and Stanford-trained. Advises Quorax on AI strategy, cognitive systems, and enterprise AI adoption across complex organizational environments.',
+    bioEs: 'Product Owner de I+D en IA Cognitiva en Credicorp y formado en Stanford. Asesora a Quorax en estrategia de IA, sistemas cognitivos y adopción de IA en entornos empresariales complejos.',
+    image: '/images/antonio.jpeg',
+    specialties: ['AI Strategy', 'Cognitive AI', 'R&D', 'Product Ownership', 'Enterprise AI'],
+  },
+  {
     id: 'maria-gonzalez',
     name: 'Maria G.',
     role: 'Data Engineer',
