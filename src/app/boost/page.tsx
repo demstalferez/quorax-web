@@ -1,19 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import {
   Globe,
   Users,
-  Server,
-  Mail,
-  Code2,
-  Shield,
+  Zap as HostingIcon,
+  HelpCircle,
+  RefreshCw,
+  CalendarCheck,
   Rocket,
   MessageCircle,
-  Zap,
+  Wrench,
+  TrendingUp,
   Check,
   ChevronDown,
   Star,
+  Bot,
+  ShoppingCart,
+  FileText,
+  CalendarDays,
+  Search,
+  Languages,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import ScrollReveal from '@/components/ui/ScrollReveal';
@@ -30,10 +38,10 @@ export default function BoostPage() {
   const features = [
     { icon: Globe, titleKey: 'boost_feature_1_title' as const, descKey: 'boost_feature_1_desc' as const, color: '#0147FF' },
     { icon: Users, titleKey: 'boost_feature_2_title' as const, descKey: 'boost_feature_2_desc' as const, color: '#00D4FF' },
-    { icon: Server, titleKey: 'boost_feature_3_title' as const, descKey: 'boost_feature_3_desc' as const, color: '#8B5CF6' },
-    { icon: Mail, titleKey: 'boost_feature_4_title' as const, descKey: 'boost_feature_4_desc' as const, color: '#F59E0B' },
-    { icon: Code2, titleKey: 'boost_feature_5_title' as const, descKey: 'boost_feature_5_desc' as const, color: '#10B981' },
-    { icon: Shield, titleKey: 'boost_feature_6_title' as const, descKey: 'boost_feature_6_desc' as const, color: '#EF4444' },
+    { icon: HostingIcon, titleKey: 'boost_feature_3_title' as const, descKey: 'boost_feature_3_desc' as const, color: '#8B5CF6' },
+    { icon: HelpCircle, titleKey: 'boost_feature_4_title' as const, descKey: 'boost_feature_4_desc' as const, color: '#F59E0B' },
+    { icon: RefreshCw, titleKey: 'boost_feature_5_title' as const, descKey: 'boost_feature_5_desc' as const, color: '#10B981' },
+    { icon: CalendarCheck, titleKey: 'boost_feature_6_title' as const, descKey: 'boost_feature_6_desc' as const, color: '#EF4444' },
   ];
 
   const plans = [
@@ -84,6 +92,15 @@ export default function BoostPage() {
     },
   ];
 
+  const addons = [
+    { icon: Bot, titleKey: 'boost_addon_chatbot_title' as const, descKey: 'boost_addon_chatbot_desc' as const, priceKey: 'boost_addon_chatbot_price' as const, color: '#8B5CF6' },
+    { icon: ShoppingCart, titleKey: 'boost_addon_ecommerce_title' as const, descKey: 'boost_addon_ecommerce_desc' as const, priceKey: 'boost_addon_ecommerce_price' as const, color: '#0147FF' },
+    { icon: FileText, titleKey: 'boost_addon_blog_title' as const, descKey: 'boost_addon_blog_desc' as const, priceKey: 'boost_addon_blog_price' as const, color: '#10B981' },
+    { icon: CalendarDays, titleKey: 'boost_addon_booking_title' as const, descKey: 'boost_addon_booking_desc' as const, priceKey: 'boost_addon_booking_price' as const, color: '#F59E0B' },
+    { icon: Search, titleKey: 'boost_addon_seo_title' as const, descKey: 'boost_addon_seo_desc' as const, priceKey: 'boost_addon_seo_price' as const, color: '#EF4444' },
+    { icon: Languages, titleKey: 'boost_addon_multilingual_title' as const, descKey: 'boost_addon_multilingual_desc' as const, priceKey: 'boost_addon_multilingual_price' as const, color: '#00D4FF' },
+  ];
+
   const faqs = [
     { q: 'boost_faq_1_q' as const, a: 'boost_faq_1_a' as const },
     { q: 'boost_faq_2_q' as const, a: 'boost_faq_2_a' as const },
@@ -91,12 +108,14 @@ export default function BoostPage() {
     { q: 'boost_faq_4_q' as const, a: 'boost_faq_4_a' as const },
     { q: 'boost_faq_5_q' as const, a: 'boost_faq_5_a' as const },
     { q: 'boost_faq_6_q' as const, a: 'boost_faq_6_a' as const },
+    { q: 'boost_faq_7_q' as const, a: 'boost_faq_7_a' as const },
   ];
 
   const processSteps = [
     { icon: MessageCircle, titleKey: 'boost_process_1_title' as const, descKey: 'boost_process_1_desc' as const },
-    { icon: Rocket, titleKey: 'boost_process_2_title' as const, descKey: 'boost_process_2_desc' as const },
-    { icon: Zap, titleKey: 'boost_process_3_title' as const, descKey: 'boost_process_3_desc' as const },
+    { icon: CalendarCheck, titleKey: 'boost_process_2_title' as const, descKey: 'boost_process_2_desc' as const },
+    { icon: Rocket, titleKey: 'boost_process_3_title' as const, descKey: 'boost_process_3_desc' as const },
+    { icon: TrendingUp, titleKey: 'boost_process_4_title' as const, descKey: 'boost_process_4_desc' as const },
   ];
 
   const comparisonRows = [
@@ -122,12 +141,28 @@ export default function BoostPage() {
       inhouse: 'boost_compare_tech_inhouse' as const,
     },
     {
-      label: 'boost_compare_infra' as const,
+      label: 'boost_compare_hosting' as const,
       boost: 'boost_compare_yes' as const,
       freelance: 'boost_compare_no' as const,
       agency: 'boost_compare_sometimes' as const,
       inhouse: 'boost_compare_no' as const,
     },
+    {
+      label: 'boost_compare_addons' as const,
+      boost: 'boost_compare_yes' as const,
+      freelance: 'boost_compare_no' as const,
+      agency: 'boost_compare_sometimes' as const,
+      inhouse: 'boost_compare_no' as const,
+    },
+  ];
+
+  const scopeItems = [
+    'boost_scope_1' as const,
+    'boost_scope_2' as const,
+    'boost_scope_3' as const,
+    'boost_scope_4' as const,
+    'boost_scope_5' as const,
+    'boost_scope_6' as const,
   ];
 
   return (
@@ -141,7 +176,6 @@ export default function BoostPage() {
             : 'linear-gradient(135deg, #EEF2FF 0%, #F0F4FF 50%, #EEF2FF 100%)',
         }}
       >
-        {/* Background decorations */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
             className="absolute top-1/4 -right-20 w-[500px] h-[500px] rounded-full blur-3xl"
@@ -272,11 +306,72 @@ export default function BoostPage() {
         </div>
       </section>
 
+      {/* Scope — What We Build */}
+      <section
+        className="py-20 md:py-28"
+        style={{ backgroundColor: isDark ? '#111633' : '#F9FAFB' }}
+      >
+        <div className="max-w-5xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="h-px w-10 bg-brand-cyan/60" />
+                <span className="text-brand-cyan text-xs font-mono tracking-[0.2em] uppercase">
+                  {t(language, 'boost_scope_label')}
+                </span>
+                <div className="h-px w-10 bg-brand-cyan/60" />
+              </div>
+              <h2
+                className="text-3xl md:text-4xl font-black tracking-tight"
+                style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+              >
+                {t(language, 'boost_scope_title')}
+              </h2>
+              <p
+                className="text-base md:text-lg mt-4"
+                style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+              >
+                {t(language, 'boost_scope_subtitle')}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              {scopeItems.map((key) => (
+                <div key={key} className="flex items-center gap-3">
+                  <Check size={16} style={{ color: '#10B981' }} className="flex-shrink-0" />
+                  <span
+                    className="text-sm"
+                    style={{ color: isDark ? '#C0C0C0' : '#4B5563' }}
+                  >
+                    {t(language, key)}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p
+              className="text-center text-sm mt-8"
+              style={{ color: isDark ? '#8E8E93' : '#9CA3AF' }}
+            >
+              {t(language, 'boost_scope_note').split(language === 'es' ? 'Desarrollo de Software' : 'Software Development')[0]}
+              <Link
+                href="/services"
+                className="text-brand-cyan hover:underline"
+              >
+                {language === 'es' ? 'Desarrollo de Software' : 'Software Development'}
+              </Link>
+              {t(language, 'boost_scope_note').split(language === 'es' ? 'Desarrollo de Software' : 'Software Development')[1] || '.'}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section
         id="pricing"
         className="py-20 md:py-28 scroll-mt-20"
-        style={{ backgroundColor: isDark ? '#111633' : '#F9FAFB' }}
+        style={{ backgroundColor: isDark ? '#0A0E27' : '#FFFFFF' }}
       >
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
@@ -400,6 +495,82 @@ export default function BoostPage() {
         </div>
       </section>
 
+      {/* Add-ons */}
+      <section
+        className="py-20 md:py-28"
+        style={{ backgroundColor: isDark ? '#111633' : '#F9FAFB' }}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="h-px w-10 bg-brand-cyan/60" />
+                <span className="text-brand-cyan text-xs font-mono tracking-[0.2em] uppercase">
+                  {t(language, 'boost_addons_label')}
+                </span>
+                <div className="h-px w-10 bg-brand-cyan/60" />
+              </div>
+              <h2
+                className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight"
+                style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+              >
+                {t(language, 'boost_addons_title')}
+              </h2>
+              <p
+                className="text-base md:text-lg mt-4"
+                style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+              >
+                {t(language, 'boost_addons_subtitle')}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {addons.map((addon, index) => {
+              const Icon = addon.icon;
+              return (
+                <ScrollReveal key={addon.titleKey} delay={index * 80}>
+                  <div
+                    className="rounded-2xl p-6 h-full flex flex-col transition-all duration-300 hover:translate-y-[-2px] group"
+                    style={{
+                      backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                      border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                    }}
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div
+                        className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                        style={{ backgroundColor: `${addon.color}15` }}
+                      >
+                        <Icon size={24} style={{ color: addon.color }} />
+                      </div>
+                      <span
+                        className="text-lg font-black"
+                        style={{ color: addon.color }}
+                      >
+                        {t(language, addon.priceKey)}
+                      </span>
+                    </div>
+                    <h3
+                      className="text-lg font-bold mb-2"
+                      style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                    >
+                      {t(language, addon.titleKey)}
+                    </h3>
+                    <p
+                      className="text-sm leading-relaxed"
+                      style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                    >
+                      {t(language, addon.descKey)}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Comparison Table */}
       <section
         className="py-20 md:py-28"
@@ -511,7 +682,7 @@ export default function BoostPage() {
         </div>
       </section>
 
-      {/* How It Works */}
+      {/* How It Works — 4 Steps */}
       <section
         className="py-20 md:py-28"
         style={{ backgroundColor: isDark ? '#111633' : '#F9FAFB' }}
@@ -535,11 +706,11 @@ export default function BoostPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {processSteps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <ScrollReveal key={step.titleKey} delay={index * 120}>
+                <ScrollReveal key={step.titleKey} delay={index * 100}>
                   <div className="text-center">
                     <div
                       className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 relative"
