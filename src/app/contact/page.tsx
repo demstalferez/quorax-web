@@ -5,17 +5,17 @@ import DecorativeLogo from '@/components/ui/DecorativeLogo';
 import ContactForm from '@/components/ui/ContactForm';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import {
-  Calendar,
   CheckCircle2,
   ArrowRight,
   MapPin,
   Phone,
+  MessageCircle,
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useTheme } from '@/contexts/ThemeContext';
 import { t, type TranslationKey } from '@/lib/translations';
 
-const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/deme-quorax/30min';
+const WHATSAPP_URL = 'https://wa.me/18653076200';
 
 export default function ContactPage() {
   const { language } = useLanguage();
@@ -125,7 +125,7 @@ export default function ContactPage() {
                 </div>
               </ScrollReveal>
 
-              {/* Calendly card */}
+              {/* WhatsApp card */}
               <ScrollReveal delay={200}>
                 <div
                   className="rounded-2xl p-6 md:p-8"
@@ -141,31 +141,31 @@ export default function ContactPage() {
                     className="text-xl font-bold"
                     style={{ color: isDark ? '#FFFFFF' : '#111827' }}
                   >
-                    {t(language, 'contact_schedule_title')}
+                    {t(language, 'contact_whatsapp_title')}
                   </h3>
                   <p
                     className="text-sm mt-2 leading-relaxed"
                     style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
                   >
-                    {t(language, 'contact_schedule_desc')}
+                    {t(language, 'contact_whatsapp_desc')}
                   </p>
 
                   <div className="mt-6">
                     <a
-                      href={CALENDLY_URL}
+                      href={WHATSAPP_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-3 w-full bg-brand-blue px-6 py-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:bg-blue-600 hover:shadow-lg hover:shadow-brand-blue/25 hover:scale-[1.02] active:scale-[0.98]"
-                      style={{ color: '#FFFFFF' }}
+                      className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                      style={{ backgroundColor: '#25D366', color: '#FFFFFF' }}
                     >
-                      <Calendar size={18} />
-                      {t(language, 'contact_schedule_cta')}
+                      <MessageCircle size={18} />
+                      {t(language, 'contact_whatsapp_cta')}
                     </a>
                     <p
                       className="text-xs mt-3 text-center"
                       style={{ color: isDark ? 'rgba(142,142,147,0.5)' : 'rgba(107,114,128,0.5)' }}
                     >
-                      {t(language, 'contact_calendly_note')}
+                      {t(language, 'contact_whatsapp_note')}
                     </p>
                   </div>
                 </div>
@@ -277,10 +277,16 @@ export default function ContactPage() {
               {t(language, 'contact_cta_subtitle')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button href={CALENDLY_URL} variant="primary" size="lg">
-                {t(language, 'contact_schedule_cta')}
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                style={{ backgroundColor: '#25D366', color: '#FFFFFF' }}
+              >
+                <MessageCircle size={18} />
+                {t(language, 'contact_whatsapp_cta')}
+              </a>
               <Button href="/portfolio" variant="ghost" size="lg">
                 {t(language, 'hero_cta_secondary')}
               </Button>
