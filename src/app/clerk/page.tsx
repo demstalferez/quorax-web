@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import {
-  MessageCircle,
+  FileSpreadsheet,
   Smartphone,
+  MessageCircle,
   UserPlus,
   Globe,
   GraduationCap,
@@ -27,7 +28,7 @@ export default function ClerkPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const features = [
-    { icon: MessageCircle, titleKey: 'clerk_feature_1_title' as const, descKey: 'clerk_feature_1_desc' as const, color: '#0147FF' },
+    { icon: FileSpreadsheet, titleKey: 'clerk_feature_1_title' as const, descKey: 'clerk_feature_1_desc' as const, color: '#0147FF' },
     { icon: Smartphone, titleKey: 'clerk_feature_2_title' as const, descKey: 'clerk_feature_2_desc' as const, color: '#25D366' },
     { icon: UserPlus, titleKey: 'clerk_feature_3_title' as const, descKey: 'clerk_feature_3_desc' as const, color: '#00D4FF' },
     { icon: Globe, titleKey: 'clerk_feature_4_title' as const, descKey: 'clerk_feature_4_desc' as const, color: '#8B5CF6' },
