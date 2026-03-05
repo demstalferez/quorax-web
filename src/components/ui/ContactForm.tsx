@@ -234,6 +234,7 @@ const ContactForm = ({ className, isDark = true }: { className?: string; isDark?
             <option value="data-science">{t(language, 'form_service_datascience')}</option>
             <option value="cybersecurity">{t(language, 'form_service_cybersecurity')}</option>
             <option value="software">{t(language, 'form_service_software')}</option>
+            <option value="clerk">{t(language, 'form_service_clerk')}</option>
             <option value="training">{t(language, 'form_service_training')}</option>
             <option value="other">{t(language, 'form_service_other')}</option>
           </select>
