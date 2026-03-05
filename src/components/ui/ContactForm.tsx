@@ -16,13 +16,13 @@ interface ContactFormState {
   honeypot: string;
 }
 
-const ContactForm = ({ className, isDark = true }: { className?: string; isDark?: boolean }) => {
+const ContactForm = ({ className, isDark = true, fixedService }: { className?: string; isDark?: boolean; fixedService?: string }) => {
   const { language } = useLanguage();
   const [formState, setFormState] = useState<ContactFormState>({
     name: '',
     email: '',
     company: '',
-    service: '',
+    service: fixedService || '',
     budget: '',
     message: '',
     honeypot: '',
@@ -97,7 +97,7 @@ const ContactForm = ({ className, isDark = true }: { className?: string; isDark?
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormState({ name: '', email: '', company: '', service: '', budget: '', message: '', honeypot: '' });
+        setFormState({ name: '', email: '', company: '', service: fixedService || '', budget: '', message: '', honeypot: '' });
         setErrorMessage('');
         setTimeout(() => setSubmitStatus('idle'), 5000);
       } else {
@@ -215,51 +215,53 @@ const ContactForm = ({ className, isDark = true }: { className?: string; isDark?
         />
       </div>
 
-      {/* Service + Budget in row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="service" className="text-sm mb-1.5 block font-medium" style={{ color: labelColor }}>
-            {t(language, 'form_service')} {optionalBadge}
-          </label>
-          <select
-            id="service"
-            name="service"
-            value={formState.service}
-            onChange={handleChange}
-            className={inputClasses}
-            style={selectStyle}
-          >
-            <option value="">{t(language, 'form_select_service')}</option>
-            <option value="ai-ml">{t(language, 'form_service_aiml')}</option>
-            <option value="data-science">{t(language, 'form_service_datascience')}</option>
-            <option value="cybersecurity">{t(language, 'form_service_cybersecurity')}</option>
-            <option value="software">{t(language, 'form_service_software')}</option>
-            <option value="clerk">{t(language, 'form_service_clerk')}</option>
-            <option value="training">{t(language, 'form_service_training')}</option>
-            <option value="other">{t(language, 'form_service_other')}</option>
-          </select>
-        </div>
+      {/* Service + Budget in row — hidden when fixedService is set */}
+      {!fixedService && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label htmlFor="service" className="text-sm mb-1.5 block font-medium" style={{ color: labelColor }}>
+              {t(language, 'form_service')} {optionalBadge}
+            </label>
+            <select
+              id="service"
+              name="service"
+              value={formState.service}
+              onChange={handleChange}
+              className={inputClasses}
+              style={selectStyle}
+            >
+              <option value="">{t(language, 'form_select_service')}</option>
+              <option value="ai-ml">{t(language, 'form_service_aiml')}</option>
+              <option value="data-science">{t(language, 'form_service_datascience')}</option>
+              <option value="cybersecurity">{t(language, 'form_service_cybersecurity')}</option>
+              <option value="software">{t(language, 'form_service_software')}</option>
+              <option value="clerk">{t(language, 'form_service_clerk')}</option>
+              <option value="training">{t(language, 'form_service_training')}</option>
+              <option value="other">{t(language, 'form_service_other')}</option>
+            </select>
+          </div>
 
-        <div>
-          <label htmlFor="budget" className="text-sm mb-1.5 block font-medium" style={{ color: labelColor }}>
-            {t(language, 'form_budget')} {optionalBadge}
-          </label>
-          <select
-            id="budget"
-            name="budget"
-            value={formState.budget}
-            onChange={handleChange}
-            className={inputClasses}
-            style={selectStyle}
-          >
-            <option value="">{t(language, 'form_select_budget')}</option>
-            <option value="under-5k">{t(language, 'form_budget_under5k')}</option>
-            <option value="5k-15k">{t(language, 'form_budget_5k_15k')}</option>
-            <option value="15k-50k">{t(language, 'form_budget_15k_50k')}</option>
-            <option value="50k-plus">{t(language, 'form_budget_50k_plus')}</option>
-          </select>
+          <div>
+            <label htmlFor="budget" className="text-sm mb-1.5 block font-medium" style={{ color: labelColor }}>
+              {t(language, 'form_budget')} {optionalBadge}
+            </label>
+            <select
+              id="budget"
+              name="budget"
+              value={formState.budget}
+              onChange={handleChange}
+              className={inputClasses}
+              style={selectStyle}
+            >
+              <option value="">{t(language, 'form_select_budget')}</option>
+              <option value="under-5k">{t(language, 'form_budget_under5k')}</option>
+              <option value="5k-15k">{t(language, 'form_budget_5k_15k')}</option>
+              <option value="15k-50k">{t(language, 'form_budget_15k_50k')}</option>
+              <option value="50k-plus">{t(language, 'form_budget_50k_plus')}</option>
+            </select>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Message */}
       <div>

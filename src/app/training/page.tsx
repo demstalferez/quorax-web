@@ -553,6 +553,54 @@ export default function TrainingPage() {
                   {t(language, 'training_partner_description')}
                 </p>
 
+                {/* Directors */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div
+                    className="flex items-center gap-3 rounded-lg p-3"
+                    style={{
+                      backgroundColor: isDark ? 'rgba(1,71,255,0.06)' : 'rgba(1,71,255,0.04)',
+                      border: `1px solid ${isDark ? 'rgba(1,71,255,0.15)' : 'rgba(1,71,255,0.1)'}`,
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/deme.jpeg"
+                      alt="Demetrio Esteban"
+                      className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                    />
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: isDark ? '#FFFFFF' : '#111827' }}>
+                        Demetrio Esteban
+                      </p>
+                      <p className="text-xs" style={{ color: isDark ? '#8E8E93' : '#6B7280' }}>
+                        {language === 'es' ? 'Director del Bootcamp' : 'Bootcamp Director'}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className="flex items-center gap-3 rounded-lg p-3"
+                    style={{
+                      backgroundColor: isDark ? 'rgba(1,71,255,0.06)' : 'rgba(1,71,255,0.04)',
+                      border: `1px solid ${isDark ? 'rgba(1,71,255,0.15)' : 'rgba(1,71,255,0.1)'}`,
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/images/angela.jpeg"
+                      alt="Ángela Valcárcel"
+                      className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                    />
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: isDark ? '#FFFFFF' : '#111827' }}>
+                        Ángela Valcárcel
+                      </p>
+                      <p className="text-xs" style={{ color: isDark ? '#8E8E93' : '#6B7280' }}>
+                        {language === 'es' ? 'Directora del Programa' : 'Program Director'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Highlights */}
                 <ul className="space-y-2 mb-6">
                   {(language === 'es' ? upgradeHubPartnership.highlightsEs : upgradeHubPartnership.highlights).map((item, i) => (
@@ -794,7 +842,7 @@ export default function TrainingPage() {
                       : '0 4px 20px rgba(0,0,0,0.06)',
                   }}
                 >
-                  <ContactForm isDark={isDark} />
+                  <ContactForm isDark={isDark} fixedService="training" />
                 </div>
               </ScrollReveal>
             </div>
