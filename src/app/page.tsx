@@ -286,7 +286,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Boost Banner */}
+      {/* Clerk Banner */}
       <section
         className="py-16 md:py-20"
         style={{ backgroundColor: isDark ? '#0A0E27' : '#FFFFFF' }}
@@ -307,24 +307,24 @@ export default function Home() {
                   className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
                   style={{ backgroundColor: '#0147FF', color: '#FFFFFF' }}
                 >
-                  {t(language, 'home_boost_label')}
+                  {t(language, 'home_clerk_label')}
                 </span>
                 <h3
                   className="text-2xl md:text-3xl font-black tracking-tight"
                   style={{ color: isDark ? '#FFFFFF' : '#111827' }}
                 >
-                  {t(language, 'home_boost_title')}
+                  {t(language, 'home_clerk_title')}
                 </h3>
                 <p
                   className="text-sm md:text-base mt-3 max-w-lg leading-relaxed"
                   style={{ color: isDark ? '#C0C0C0' : '#4B5563' }}
                 >
-                  {t(language, 'home_boost_subtitle')}
+                  {t(language, 'home_clerk_subtitle')}
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <Button href="/boost" variant="primary" size="lg">
-                  {t(language, 'home_boost_cta')}
+                <Button href="/clerk" variant="primary" size="lg">
+                  {t(language, 'home_clerk_cta')}
                 </Button>
               </div>
             </div>

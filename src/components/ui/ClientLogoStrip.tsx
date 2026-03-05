@@ -7,7 +7,6 @@ const ClientLogoStrip = ({ className, isDark = true }: { className?: string; isD
     'ACCEM',
     'Upgrade Hub',
     'Universidad de la República',
-    'NETpc',
   ];
 
   // Duplicate for seamless infinite scroll
