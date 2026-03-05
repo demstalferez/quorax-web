@@ -6,10 +6,12 @@ import TechPill from '@/components/ui/TechPill';
 import Button from '@/components/ui/Button';
 import DecorativeLogo from '@/components/ui/DecorativeLogo';
 import MetricsCounter from '@/components/ui/MetricsCounter';
+import ContactForm from '@/components/ui/ContactForm';
 import {
   trainingPrograms,
   methodologySteps,
   targetAudiences,
+  careerOutcomes,
   upgradeHubPartnership,
 } from '@/data/training';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -18,7 +20,6 @@ import { t } from '@/lib/translations';
 import {
   Brain,
   BarChart3,
-  Shield,
   Code2,
   Sparkles,
   Hammer,
@@ -33,14 +34,15 @@ import {
   CheckCircle2,
   ArrowRight,
   ExternalLink,
-  Clock,
-  GraduationCap,
+  MessageCircle,
+  Layers,
 } from 'lucide-react';
+
+const WHATSAPP_URL = 'https://wa.me/18653076200';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string; size?: number; style?: React.CSSProperties }>> = {
   Brain,
   BarChart3,
-  Shield,
   Code2,
   Sparkles,
   Hammer,
@@ -103,16 +105,29 @@ export default function TrainingPage() {
 
                 {/* Key tech pills */}
                 <div className="flex flex-wrap gap-2 mt-8">
-                  {['Python', 'SQL', 'Power BI', 'Microsoft Fabric', 'Azure ML', 'LLMs & RAG', 'YOLO'].map((tech) => (
+                  {['Python', 'SQL', 'Power BI', 'Microsoft Fabric', 'Azure ML', 'LLMs & RAG', 'YOLO', 'n8n'].map((tech) => (
                     <TechPill key={tech} label={tech} variant="blue" />
                   ))}
                 </div>
 
-                <div className="mt-8">
-                  <Button href="/contact" variant="primary" size="lg">
+                <div className="flex flex-wrap gap-3 mt-8">
+                  <Button href="#contact-form" variant="primary" size="lg">
                     {t(language, 'training_cta_primary')}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
+                  <a
+                    href={upgradeHubPartnership.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-80"
+                    style={{
+                      color: isDark ? '#8E8E93' : '#6B7280',
+                      border: `1px solid ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.12)'}`,
+                    }}
+                  >
+                    {t(language, 'training_partner_cta')}
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </ScrollReveal>
@@ -135,7 +150,6 @@ export default function TrainingPage() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
-                {/* Gradient overlay */}
                 <div
                   className="absolute inset-0"
                   style={{
@@ -163,7 +177,7 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* Stats — prominent with MetricsCounter and gradient bg */}
+      {/* Stats */}
       <section
         className="py-16"
         style={{
@@ -187,7 +201,7 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* Programs — Featured card + 2x2 grid */}
+      {/* Programs — Prework + 2x2 grid */}
       <section
         className="py-20"
         style={{ backgroundColor: isDark ? '#0A0E27' : '#FFFFFF' }}
@@ -213,6 +227,42 @@ export default function TrainingPage() {
               >
                 {t(language, 'training_programs_subtitle')}
               </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Prework banner */}
+          <ScrollReveal>
+            <div
+              className="rounded-2xl p-6 mb-6 flex items-start gap-4"
+              style={{
+                backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                boxShadow: isDark
+                  ? '0 4px 20px rgba(0,0,0,0.3)'
+                  : '0 4px 20px rgba(0,0,0,0.06)',
+                borderLeft: '3px solid #8B5CF6',
+              }}
+            >
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: 'rgba(139,92,246,0.12)' }}
+              >
+                <Layers className="w-5 h-5" style={{ color: '#8B5CF6' }} />
+              </div>
+              <div>
+                <h3
+                  className="font-bold text-base"
+                  style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                >
+                  {t(language, 'training_programs_prework')}
+                </h3>
+                <p
+                  className="text-sm mt-1 leading-relaxed"
+                  style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                >
+                  {t(language, 'training_programs_prework_desc')}
+                </p>
+              </div>
             </div>
           </ScrollReveal>
 
@@ -296,6 +346,19 @@ export default function TrainingPage() {
                         ))}
                       </ul>
                     </div>
+
+                    {/* Certification badge */}
+                    {module.certification && (
+                      <div
+                        className="mt-5 pt-4 flex items-center gap-2"
+                        style={{ borderTop: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)'}` }}
+                      >
+                        <Award size={14} className="text-brand-cyan flex-shrink-0" />
+                        <span className="text-xs" style={{ color: isDark ? '#00D4FF' : '#0147FF' }}>
+                          {t(language, 'training_programs_cert_label')}: {language === 'es' ? module.certificationEs : module.certification}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </ScrollReveal>
               );
@@ -304,7 +367,7 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* Methodology — vertical alternating layout */}
+      {/* Methodology */}
       <section
         className="py-20"
         style={{ backgroundColor: isDark ? '#111633' : '#F9FAFB' }}
@@ -363,8 +426,6 @@ export default function TrainingPage() {
                         }}
                       />
 
-                      {/* Mobile: always on the right of the line */}
-                      {/* Desktop: alternating sides */}
                       <div className={`
                         ml-14 md:ml-0 md:w-1/2
                         ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:ml-auto'}
@@ -540,7 +601,80 @@ export default function TrainingPage() {
         </div>
       </section>
 
-      {/* Who It's For — with color accents and horizontal layout */}
+      {/* Career Outcomes */}
+      <section
+        className="py-20"
+        style={{ backgroundColor: isDark ? '#111633' : '#F9FAFB' }}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="h-px w-10 bg-brand-cyan/60" />
+                <span className="text-brand-cyan text-xs font-mono tracking-[0.2em] uppercase">
+                  {t(language, 'training_careers_label')}
+                </span>
+                <div className="h-px w-10 bg-brand-cyan/60" />
+              </div>
+              <h2
+                className="text-3xl md:text-4xl font-black tracking-tight"
+                style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+              >
+                {t(language, 'training_careers_title')}
+              </h2>
+              <p
+                className="text-lg mt-4"
+                style={{ color: isDark ? '#8E8E93' : '#4B5563' }}
+              >
+                {t(language, 'training_careers_subtitle')}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {careerOutcomes.map((career, index) => {
+              const Icon = iconMap[career.icon];
+              return (
+                <ScrollReveal key={career.id} delay={index * 80}>
+                  <div
+                    className="rounded-xl p-5 flex items-start gap-4 transition-all duration-300 hover:translate-y-[-2px]"
+                    style={{
+                      backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                      border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                      boxShadow: isDark
+                        ? '0 4px 20px rgba(0,0,0,0.3)'
+                        : '0 4px 20px rgba(0,0,0,0.06)',
+                    }}
+                  >
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: isDark ? 'rgba(1,71,255,0.12)' : 'rgba(1,71,255,0.08)' }}
+                    >
+                      {Icon && <Icon className="w-5 h-5 text-brand-blue" />}
+                    </div>
+                    <div>
+                      <h3
+                        className="font-bold text-base"
+                        style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                      >
+                        {language === 'es' ? career.titleEs : career.title}
+                      </h3>
+                      <p
+                        className="text-sm mt-1 leading-relaxed"
+                        style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                      >
+                        {language === 'es' ? career.descriptionEs : career.description}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Who It's For */}
       <section
         className="py-20"
         style={{ backgroundColor: isDark ? '#0A0E27' : '#FFFFFF' }}
@@ -586,7 +720,6 @@ export default function TrainingPage() {
                         : '0 4px 20px rgba(0,0,0,0.06)',
                     }}
                   >
-                    {/* Colored accent bar at top */}
                     <div
                       className="w-10 h-1 rounded-full mx-auto mb-5"
                       style={{ backgroundColor: color }}
@@ -617,6 +750,155 @@ export default function TrainingPage() {
         </div>
       </section>
 
+      {/* Contact Form — Inline */}
+      <section
+        id="contact-form"
+        className="py-20"
+        style={{ backgroundColor: isDark ? '#111633' : '#F9FAFB' }}
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+            {/* Form — 3 columns */}
+            <div className="lg:col-span-3">
+              <ScrollReveal>
+                <div className="mb-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-px w-10 bg-brand-cyan/60" />
+                    <span className="text-brand-cyan text-xs font-mono tracking-[0.2em] uppercase">
+                      {t(language, 'training_form_label')}
+                    </span>
+                  </div>
+                  <h2
+                    className="text-2xl md:text-3xl font-black tracking-tight"
+                    style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                  >
+                    {t(language, 'training_form_title')}
+                  </h2>
+                  <p
+                    className="text-base mt-2"
+                    style={{ color: isDark ? '#8E8E93' : '#4B5563' }}
+                  >
+                    {t(language, 'training_form_subtitle')}
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal delay={100}>
+                <div
+                  className="rounded-2xl p-6 md:p-8"
+                  style={{
+                    backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                    border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                    boxShadow: isDark
+                      ? '0 4px 20px rgba(0,0,0,0.3)'
+                      : '0 4px 20px rgba(0,0,0,0.06)',
+                  }}
+                >
+                  <ContactForm isDark={isDark} />
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Sidebar — 2 columns */}
+            <div className="lg:col-span-2 flex flex-col justify-end space-y-8">
+              {/* WhatsApp card */}
+              <ScrollReveal delay={200}>
+                <div
+                  className="rounded-2xl p-6 md:p-8"
+                  style={{
+                    backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                    border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                    boxShadow: isDark
+                      ? '0 4px 20px rgba(0,0,0,0.3)'
+                      : '0 4px 20px rgba(0,0,0,0.06)',
+                  }}
+                >
+                  <h3
+                    className="text-xl font-bold"
+                    style={{ color: isDark ? '#FFFFFF' : '#111827' }}
+                  >
+                    {language === 'es' ? 'Prefiere WhatsApp?' : 'Prefer WhatsApp?'}
+                  </h3>
+                  <p
+                    className="text-sm mt-2 leading-relaxed"
+                    style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                  >
+                    {language === 'es'
+                      ? 'Escríbenos directamente por WhatsApp y te respondemos en menos de 24 horas.'
+                      : 'Message us directly on WhatsApp and we will reply within 24 hours.'}
+                  </p>
+                  <div className="mt-6">
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 w-full px-6 py-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                      style={{ backgroundColor: '#25D366', color: '#FFFFFF' }}
+                    >
+                      <MessageCircle size={18} />
+                      {t(language, 'training_cta_whatsapp')}
+                    </a>
+                  </div>
+                </div>
+              </ScrollReveal>
+
+              {/* Upgrade Hub contact info */}
+              <ScrollReveal delay={300}>
+                <div
+                  className="rounded-2xl p-6 md:p-8"
+                  style={{
+                    backgroundColor: isDark ? 'rgba(10,14,39,0.8)' : '#FFFFFF',
+                    border: `1px solid ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.08)'}`,
+                    boxShadow: isDark
+                      ? '0 4px 20px rgba(0,0,0,0.3)'
+                      : '0 4px 20px rgba(0,0,0,0.06)',
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-px w-8 bg-brand-cyan/60" />
+                    <span className="text-brand-cyan text-[10px] font-mono tracking-[0.2em] uppercase">
+                      Upgrade Hub
+                    </span>
+                  </div>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: isDark ? '#8E8E93' : '#6B7280' }}
+                  >
+                    {upgradeHubPartnership.contact.address}
+                  </p>
+                  <div className="mt-3 space-y-1">
+                    <a
+                      href={`tel:${upgradeHubPartnership.contact.phone.replace(/\s/g, '')}`}
+                      className="text-sm block transition-colors hover:text-brand-cyan"
+                      style={{ color: isDark ? '#C0C0C0' : '#374151' }}
+                    >
+                      {upgradeHubPartnership.contact.phone}
+                    </a>
+                    <a
+                      href={`mailto:${upgradeHubPartnership.contact.email}`}
+                      className="text-sm block transition-colors hover:text-brand-cyan"
+                      style={{ color: isDark ? '#C0C0C0' : '#374151' }}
+                    >
+                      {upgradeHubPartnership.contact.email}
+                    </a>
+                  </div>
+                  <a
+                    href={upgradeHubPartnership.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold mt-4 transition-colors hover:text-brand-blue"
+                    style={{ color: isDark ? '#0147FF' : '#0147FF' }}
+                  >
+                    {t(language, 'training_partner_cta')}
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section
         className="py-20"
@@ -641,12 +923,19 @@ export default function TrainingPage() {
               {t(language, 'training_cta_subtitle')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button href="/contact" variant="primary" size="lg">
+              <Button href="#contact-form" variant="primary" size="lg">
                 {t(language, 'training_cta_primary')}
               </Button>
-              <Button href="/portfolio" variant="ghost" size="lg">
-                {t(language, 'hero_cta_secondary')}
-              </Button>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                style={{ backgroundColor: '#25D366', color: '#FFFFFF' }}
+              >
+                <MessageCircle size={18} />
+                {t(language, 'training_cta_whatsapp')}
+              </a>
             </div>
           </ScrollReveal>
         </div>

@@ -11,6 +11,8 @@ export interface TrainingProgram {
   durationEs: string;
   level: string;
   levelEs: string;
+  certification?: string;
+  certificationEs?: string;
 }
 
 export interface MethodologyStep {
@@ -31,30 +33,41 @@ export interface TargetAudience {
   descriptionEs: string;
 }
 
+export interface CareerOutcome {
+  id: string;
+  icon: string;
+  title: string;
+  titleEs: string;
+  description: string;
+  descriptionEs: string;
+}
+
 export const trainingPrograms: TrainingProgram[] = [
   {
     id: 'module-1',
     icon: 'Code2',
-    title: 'Programming & Data Analysis Fundamentals',
-    titleEs: 'Fundamentos de Programación y Análisis de Datos',
-    description: 'Build a solid foundation in Python programming, data manipulation, and SQL. Learn to work with real datasets using NumPy, Pandas, and connect to APIs and scripts.',
-    descriptionEs: 'Construye una base sólida en programación Python, manipulación de datos y SQL. Aprende a trabajar con datasets reales usando NumPy, Pandas, y a conectarte a APIs y scripts.',
-    topics: ['Python Programming', 'NumPy & Pandas', 'SQL & Databases', 'Scripts & APIs', 'Data Cleaning & Manipulation'],
-    topicsEs: ['Programación Python', 'NumPy y Pandas', 'SQL y Bases de Datos', 'Scripts y APIs', 'Limpieza y Manipulación de Datos'],
+    title: 'ETL, Business Intelligence & Python',
+    titleEs: 'ETL, Business Intelligence y Python',
+    description: 'Build a solid foundation in the full ETL process with PowerQuery and Microsoft Fabric, BI and dimensional modeling, Power BI with DAX for executive dashboards, and Python applied to data with NumPy, Pandas, and professional visualization.',
+    descriptionEs: 'Construye una base sólida en el proceso ETL completo con PowerQuery y Microsoft Fabric, BI y modelado dimensional, Power BI con DAX para dashboards ejecutivos, y Python aplicado a datos con NumPy, Pandas y visualización profesional.',
+    topics: ['ETL with PowerQuery & Microsoft Fabric', 'Dimensional Modeling & Data Warehouses', 'Power BI with DAX', 'Python: NumPy, Pandas & Visualization', 'End-to-end Project on GitHub'],
+    topicsEs: ['ETL con PowerQuery y Microsoft Fabric', 'Modelado Dimensional y Data Warehouses', 'Power BI con DAX', 'Python: NumPy, Pandas y Visualización', 'Proyecto End-to-end en GitHub'],
     duration: '6 weeks',
     durationEs: '6 semanas',
     level: 'Beginner',
     levelEs: 'Principiante',
+    certification: 'Microsoft Fabric Analytics Engineer & Power BI Data Analyst',
+    certificationEs: 'Microsoft Fabric Analytics Engineer y Power BI Data Analyst',
   },
   {
     id: 'module-2',
     icon: 'BarChart3',
-    title: 'Business Intelligence & Analysis Techniques',
-    titleEs: 'Business Intelligence y Técnicas de Análisis',
-    description: 'Master exploratory data analysis, data storytelling, and business intelligence tools. Build professional dashboards with Power BI and Microsoft Fabric.',
-    descriptionEs: 'Domina el análisis exploratorio de datos, data storytelling y herramientas de inteligencia de negocio. Construye dashboards profesionales con Power BI y Microsoft Fabric.',
-    topics: ['Exploratory Data Analysis', 'Data Storytelling & Visualization', 'Power BI', 'Microsoft Fabric', 'Business Intelligence'],
-    topicsEs: ['Análisis Exploratorio de Datos', 'Data Storytelling y Visualización', 'Power BI', 'Microsoft Fabric', 'Inteligencia de Negocio'],
+    title: 'Data Analysis, SQL & Modern Tools',
+    titleEs: 'Análisis de Datos, SQL y Herramientas Modernas',
+    description: 'Deep dive into statistics, Streamlit for interactive apps, SQL with Azure databases, AI-assisted coding with GitHub Copilot & Ollama, and Vibe Coding to build your professional online portfolio.',
+    descriptionEs: 'Profundiza en estadística, Streamlit para apps interactivas, SQL con bases de datos Azure, programación asistida por IA con GitHub Copilot y Ollama, y Vibe Coding para construir tu portfolio profesional online.',
+    topics: ['Streamlit & Interactive Apps', 'Statistics & Advanced Preprocessing', 'SQL with Azure & Python Integration', 'GitHub Copilot & Ollama', 'Vibe Coding: Portfolio & CV Online'],
+    topicsEs: ['Streamlit y Apps Interactivas', 'Estadística y Preprocesamiento Avanzado', 'SQL con Azure e Integración Python', 'GitHub Copilot y Ollama', 'Vibe Coding: Portfolio y CV Online'],
     duration: '6 weeks',
     durationEs: '6 semanas',
     level: 'Intermediate',
@@ -63,26 +76,28 @@ export const trainingPrograms: TrainingProgram[] = [
   {
     id: 'module-3',
     icon: 'Brain',
-    title: 'Machine Learning, Cloud & AI',
-    titleEs: 'Machine Learning, Cloud e IA',
-    description: 'Dive into machine learning, cloud computing with Azure, computer vision with YOLO, and generative AI. Work with Large Language Models and RAG techniques for real-world applications.',
-    descriptionEs: 'Sumérgete en machine learning, computación en la nube con Azure, visión por computadora con YOLO e IA generativa. Trabaja con Large Language Models y técnicas RAG para aplicaciones reales.',
-    topics: ['Azure ML & Cloud AI', 'Computer Vision (YOLO)', 'Large Language Models', 'RAG Techniques', 'Streamlit & n8n'],
-    topicsEs: ['Azure ML e IA en la Nube', 'Visión por Computadora (YOLO)', 'Large Language Models', 'Técnicas RAG', 'Streamlit y n8n'],
+    title: 'Machine Learning, LLMs & Computer Vision',
+    titleEs: 'Machine Learning, LLMs y Visión Computacional',
+    description: 'Explore the full AI ecosystem: from classic ML (classification, regression, time series) to neural networks, computer vision with YOLO, LLMs via API, RAG for enterprise chatbots, and workflow automation with n8n.',
+    descriptionEs: 'Explora el ecosistema completo de la IA: desde ML clásico (clasificación, regresión, series temporales) hasta redes neuronales, visión computacional con YOLO, LLMs vía API, RAG para chatbots empresariales y automatización de flujos con n8n.',
+    topics: ['Classification, Regression & Time Series', 'Neural Networks & Computer Vision (YOLO)', 'LLMs & Prompt Engineering', 'RAG: Enterprise Chatbots with Context', 'n8n Workflow Automation'],
+    topicsEs: ['Clasificación, Regresión y Series Temporales', 'Redes Neuronales y Visión Computacional (YOLO)', 'LLMs y Prompt Engineering', 'RAG: Chatbots Empresariales con Contexto', 'Automatización de Flujos con n8n'],
     duration: '6 weeks',
     durationEs: '6 semanas',
     level: 'Advanced',
     levelEs: 'Avanzado',
+    certification: 'Microsoft Azure Data Scientist Associate',
+    certificationEs: 'Microsoft Azure Data Scientist Associate',
   },
   {
     id: 'career-skills',
     icon: 'Sparkles',
     title: 'Career & Soft Skills',
     titleEs: 'Carrera y Soft Skills',
-    description: 'Develop the professional skills that complement your technical training. Agile methodologies, CV optimization, LinkedIn strategy, technical mock interviews, and leadership coaching.',
-    descriptionEs: 'Desarrolla las habilidades profesionales que complementan tu formación técnica. Metodologías ágiles, optimización de CV, estrategia de LinkedIn, mock interviews técnicas y coaching de liderazgo.',
-    topics: ['Agile (Scrum & Kanban)', 'CV & LinkedIn Optimization', 'Technical Mock Interviews', 'Communication & Leadership', 'GitHub Copilot & ChatGPT'],
-    topicsEs: ['Agile (Scrum y Kanban)', 'Optimización de CV y LinkedIn', 'Mock Interviews Técnicas', 'Comunicación y Liderazgo', 'GitHub Copilot y ChatGPT'],
+    description: 'Develop the professional skills that complement your technical training. Emotional intelligence, agile methodologies (Scrum & Kanban), data storytelling, CV & LinkedIn optimization, and technical mock interviews.',
+    descriptionEs: 'Desarrolla las habilidades profesionales que complementan tu formación técnica. Inteligencia emocional, metodologías ágiles (Scrum y Kanban), data storytelling, optimización de CV y LinkedIn, y mock interviews técnicas.',
+    topics: ['Emotional Intelligence & Communication', 'Agile: Scrum & Kanban', 'Data Storytelling for Non-Technical Audiences', 'CV & LinkedIn Optimization', 'Ethics & Responsibility in AI'],
+    topicsEs: ['Inteligencia Emocional y Comunicación', 'Agile: Scrum y Kanban', 'Data Storytelling para Audiencias No Técnicas', 'Optimización de CV y LinkedIn', 'Ética y Responsabilidad en IA'],
     duration: 'Ongoing',
     durationEs: 'Continuo',
     level: 'All Levels',
@@ -104,32 +119,32 @@ export const methodologySteps: MethodologyStep[] = [
     icon: 'Hammer',
     title: 'Learning by Doing',
     titleEs: 'Aprender Haciendo',
-    description: 'Practical methodology from day one. Real datasets, business scenarios, and hands-on projects in every module.',
-    descriptionEs: 'Metodología práctica desde el primer día. Datasets reales, escenarios de negocio y proyectos prácticos en cada módulo.',
+    description: 'Practical methodology from day one. Real datasets, business scenarios, and hands-on projects delivered on GitHub in every module.',
+    descriptionEs: 'Metodología práctica desde el primer día. Datasets reales, escenarios de negocio y proyectos prácticos entregados en GitHub en cada módulo.',
   },
   {
     id: 'mentorship',
     icon: 'Users',
     title: '1:1 Mentorship',
     titleEs: 'Mentoría 1:1',
-    description: 'Personalized mentorships and feedback sessions with industry professionals who guide your learning journey.',
-    descriptionEs: 'Mentorías personalizadas y sesiones de feedback con profesionales de la industria que guían tu aprendizaje.',
+    description: 'Personalized mentoring and feedback sessions with industry professionals who review your projects and guide your progress.',
+    descriptionEs: 'Mentorías personalizadas y sesiones de feedback con profesionales de la industria que revisan tus proyectos y guían tu progreso.',
   },
   {
     id: 'cloud-sandbox',
     icon: 'Cloud',
     title: 'Cloud & AI Tools',
     titleEs: 'Herramientas Cloud e IA',
-    description: 'Work with Azure, Streamlit, GitHub Copilot, and cutting-edge AI tools. Plus 24/7 AI assistant support.',
-    descriptionEs: 'Trabaja con Azure, Streamlit, GitHub Copilot y herramientas de IA de vanguardia. Además, asistente IA disponible 24/7.',
+    description: 'Work with Azure, Streamlit, GitHub Copilot, Ollama, and cutting-edge AI tools. Plus 24/7 AI assistant support.',
+    descriptionEs: 'Trabaja con Azure, Streamlit, GitHub Copilot, Ollama y herramientas de IA de vanguardia. Además, asistente IA disponible 24/7.',
   },
   {
     id: 'certification',
     icon: 'Award',
     title: 'Microsoft Certifications',
     titleEs: 'Certificaciones Microsoft',
-    description: 'Preparation for official Microsoft certifications: Azure Data Scientist, Power BI, and Fabric Analytics Engineer.',
-    descriptionEs: 'Preparación para certificaciones oficiales de Microsoft: Azure Data Scientist, Power BI y Fabric Analytics Engineer.',
+    description: 'Preparation for 3 official Microsoft certifications: Fabric Analytics Engineer, Power BI Data Analyst, and Azure Data Scientist.',
+    descriptionEs: 'Preparación para 3 certificaciones oficiales de Microsoft: Fabric Analytics Engineer, Power BI Data Analyst y Azure Data Scientist.',
   },
 ];
 
@@ -168,17 +183,69 @@ export const targetAudiences: TargetAudience[] = [
   },
 ];
 
+export const careerOutcomes: CareerOutcome[] = [
+  {
+    id: 'data-analyst',
+    icon: 'BarChart3',
+    title: 'Data Analyst',
+    titleEs: 'Analista de Datos',
+    description: 'Collect, analyze, and visualize large volumes of data for business decision-making.',
+    descriptionEs: 'Recopila, analiza y visualiza grandes volúmenes de datos para la toma de decisiones empresariales.',
+  },
+  {
+    id: 'data-scientist',
+    icon: 'Brain',
+    title: 'Data Scientist',
+    titleEs: 'Científico de Datos',
+    description: 'Develop predictive algorithms and models to solve complex business problems.',
+    descriptionEs: 'Desarrolla algoritmos y modelos predictivos para resolver problemas empresariales complejos.',
+  },
+  {
+    id: 'bi-specialist',
+    icon: 'Target',
+    title: 'BI Specialist',
+    titleEs: 'Especialista en BI',
+    description: 'Transform data into strategic information to support decision-making at all levels.',
+    descriptionEs: 'Transforma datos en información estratégica para apoyar la toma de decisiones.',
+  },
+  {
+    id: 'data-engineer',
+    icon: 'Code2',
+    title: 'Data Engineer',
+    titleEs: 'Ingeniero de Datos',
+    description: 'Design and manage data storage, processing, and pipeline systems.',
+    descriptionEs: 'Diseña y administra sistemas de almacenamiento, procesamiento y pipelines de datos.',
+  },
+  {
+    id: 'analytics-consultant',
+    icon: 'Landmark',
+    title: 'Analytics Consultant',
+    titleEs: 'Consultor de Analítica',
+    description: 'Advise companies on implementing data analysis and AI solutions.',
+    descriptionEs: 'Asesora empresas en la implementación de soluciones de análisis de datos e IA.',
+  },
+  {
+    id: 'marketing-analyst',
+    icon: 'Sparkles',
+    title: 'Marketing Data Analyst',
+    titleEs: 'Analista de Marketing Digital',
+    description: 'Analyze and optimize marketing strategies using data and metrics.',
+    descriptionEs: 'Analiza y optimiza estrategias de marketing usando datos y métricas.',
+  },
+];
+
 export const upgradeHubPartnership = {
   name: 'Upgrade Hub',
   location: 'Madrid, Spain',
+  locationEs: 'Madrid, España',
   website: 'https://www.upgrade-hub.com/bootcamp/curso-data-analytics/',
   image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1200&q=80',
   imageAlt: 'Modern tech training classroom environment',
   imageAltEs: 'Entorno moderno de formación tecnológica',
   role: 'Bootcamp Director — Data Analytics & AI',
   roleEs: 'Director de Bootcamp — Data Analytics e IA',
-  description: 'Our founder Demetrio Esteban serves as Bootcamp Director of the Data Analytics & AI program at Upgrade Hub, Madrid\'s leading tech education hub. The program covers Python, SQL, Power BI, Microsoft Fabric, Azure ML, LLMs, and RAG — preparing students to work with data end-to-end and build production AI models.',
-  descriptionEs: 'Nuestro fundador Demetrio Esteban es Director de Bootcamp del programa Data Analytics e IA en Upgrade Hub, el hub líder de formación tecnológica en Madrid. El programa cubre Python, SQL, Power BI, Microsoft Fabric, Azure ML, LLMs y RAG — preparando estudiantes para trabajar con datos de principio a fin y construir modelos de IA para producción.',
+  description: 'Our founder Demetrio Esteban serves as Bootcamp Director of the Data Analytics & AI program at Upgrade Hub, Madrid\'s leading tech education hub. The 18-week intensive program covers ETL, Power BI, SQL, Python, Machine Learning, LLMs, RAG, and Computer Vision — preparing students to work with data end-to-end and build production AI models.',
+  descriptionEs: 'Nuestro fundador Demetrio Esteban es Director de Bootcamp del programa Data Analytics e IA en Upgrade Hub, el hub líder de formación tecnológica en Madrid. El programa intensivo de 18 semanas cubre ETL, Power BI, SQL, Python, Machine Learning, LLMs, RAG y Visión Computacional — preparando estudiantes para trabajar con datos de principio a fin y construir modelos de IA para producción.',
   highlights: [
     'Cisco Networking Academy partner',
     'Excellence in Education Awards 2025',
@@ -196,4 +263,9 @@ export const upgradeHubPartnership = {
     { value: '90%+', label: 'Employment Rate', labelEs: 'Tasa de Empleo' },
     { value: '500+', label: 'Company Partners', labelEs: 'Empresas Asociadas' },
   ],
+  contact: {
+    phone: '+34 622 340 700',
+    email: 'admisiones.upgradehub@upgrade-hub.com',
+    address: 'Spaces Bernabéu · Paseo de la Castellana 93b · 28046 Madrid',
+  },
 };
