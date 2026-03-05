@@ -1,45 +1,23 @@
 'use client';
 
-import { useState } from 'react';
-
 const WHATSAPP_NUMBER = '18653076200';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export default function WhatsAppButton() {
-  const [hover, setHover] = useState(false);
-
   return (
     <a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 no-underline"
+      className="fixed bottom-6 right-6 z-50 flex items-center no-underline group"
     >
-      {/* Tooltip */}
-      <span
-        className="hidden sm:block rounded-lg px-3 py-2 text-sm font-semibold shadow-lg transition-all duration-300 whitespace-nowrap"
-        style={{
-          backgroundColor: '#FFFFFF',
-          color: '#111827',
-          opacity: hover ? 1 : 0,
-          transform: hover ? 'translateX(0)' : 'translateX(8px)',
-          pointerEvents: 'none',
-        }}
-      >
-        Try our Clerk
-      </span>
-
-      {/* Button */}
       <div
-        className="flex items-center justify-center rounded-full shadow-lg transition-transform duration-300"
+        className="flex items-center justify-center rounded-full shadow-lg transition-transform duration-300 group-hover:scale-110"
         style={{
           width: 56,
           height: 56,
           backgroundColor: '#25D366',
-          transform: hover ? 'scale(1.1)' : 'scale(1)',
         }}
       >
         <svg viewBox="0 0 32 32" width={28} height={28} fill="#FFFFFF">
