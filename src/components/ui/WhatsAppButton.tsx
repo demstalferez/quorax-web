@@ -1,0 +1,65 @@
+'use client';
+
+import { useState } from 'react';
+
+const WHATSAPP_NUMBER = '18653076200';
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+export default function WhatsAppButton() {
+  const [hover, setHover] = useState(false);
+
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 no-underline"
+    >
+      {/* Tooltip */}
+      <span
+        className="hidden sm:block rounded-lg px-3 py-2 text-sm font-semibold shadow-lg transition-all duration-300 whitespace-nowrap"
+        style={{
+          backgroundColor: '#FFFFFF',
+          color: '#111827',
+          opacity: hover ? 1 : 0,
+          transform: hover ? 'translateX(0)' : 'translateX(8px)',
+          pointerEvents: 'none',
+        }}
+      >
+        Try our Clerk
+      </span>
+
+      {/* Button */}
+      <div
+        className="flex items-center justify-center rounded-full shadow-lg transition-transform duration-300"
+        style={{
+          width: 56,
+          height: 56,
+          backgroundColor: '#25D366',
+          transform: hover ? 'scale(1.1)' : 'scale(1)',
+        }}
+      >
+        <svg viewBox="0 0 32 32" width={28} height={28} fill="#FFFFFF">
+          <path d="M16.004 2.667A13.26 13.26 0 0 0 2.67 15.89a13.16 13.16 0 0 0 1.795 6.66L2.667 29.333l7.008-1.835A13.28 13.28 0 0 0 16.004 29.333h.009A13.334 13.334 0 0 0 16.004 2.667Zm0 24.31a11.02 11.02 0 0 1-5.604-1.53l-.4-.24-4.16 1.09 1.11-4.06-.263-.418a10.97 10.97 0 0 1-1.685-5.864 11.05 11.05 0 0 1 22.1.068 11.06 11.06 0 0 1-11.098 10.955Zm6.058-8.266c-.332-.167-1.964-.97-2.27-1.08-.305-.11-.527-.167-.75.166-.22.333-.86 1.08-1.054 1.302-.194.22-.389.25-.72.083-.332-.167-1.403-.517-2.672-1.648-.987-.88-1.654-1.967-1.848-2.3-.194-.332-.02-.512.146-.678.15-.15.332-.389.499-.583.166-.194.222-.333.332-.555.111-.222.056-.417-.028-.583-.083-.167-.75-1.806-1.027-2.472-.27-.649-.546-.561-.75-.572-.194-.009-.416-.011-.638-.011a1.225 1.225 0 0 0-.888.417c-.305.333-1.165 1.138-1.165 2.775s1.193 3.22 1.359 3.442c.166.222 2.348 3.584 5.69 5.027.795.343 1.415.548 1.899.702.798.254 1.524.218 2.098.132.64-.096 1.964-.803 2.241-1.578.278-.775.278-1.44.194-1.578-.083-.139-.305-.222-.638-.389Z" />
+        </svg>
+      </div>
+
+      {/* Pulse ring */}
+      <div
+        className="absolute rounded-full"
+        style={{
+          width: 56,
+          height: 56,
+          right: 0,
+          bottom: 0,
+          border: '2px solid #25D366',
+          animation: 'pulse-ring 2s ease-out infinite',
+          pointerEvents: 'none',
+        }}
+      />
+    </a>
+  );
+}
