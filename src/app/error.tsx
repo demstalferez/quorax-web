@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { t } from '@/lib/translations';
 
@@ -11,6 +12,21 @@ export default function Error({
   reset: () => void;
 }) {
   const { language } = useLanguage();
+  const retried = useRef(false);
+
+  useEffect(() => {
+    // Auto-recover from hydration errors caused by browser extensions
+    const isHydrationError =
+      error.message?.includes('removeChild') ||
+      error.message?.includes('insertBefore') ||
+      error.message?.includes('Hydration') ||
+      error.message?.includes('hydrating');
+
+    if (isHydrationError && !retried.current) {
+      retried.current = true;
+      reset();
+    }
+  }, [error, reset]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-6 bg-brand-navy">
